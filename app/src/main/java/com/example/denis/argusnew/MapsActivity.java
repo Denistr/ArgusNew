@@ -114,6 +114,7 @@ public class MapsActivity extends FragmentActivity {
     }
 
 
+
     private void setUpMap() {
 
         try {
