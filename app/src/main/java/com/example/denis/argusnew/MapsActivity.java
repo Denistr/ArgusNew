@@ -1,14 +1,9 @@
 package com.example.denis.argusnew;
 
-import android.app.AlertDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.location.LocationManager;
-import android.os.SystemClock;
-import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.drive.internal.CreateFileIntentSenderRequest;
+
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -30,7 +23,6 @@ import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity {
@@ -196,8 +188,6 @@ public class MapsActivity extends FragmentActivity {
                     dataLoc = new ArrayList<LocationData>();
                 }
                 dataLoc.add(new LocationData(MyLocationListener.imHere.getLatitude(), MyLocationListener.imHere.getLongitude()));
-                //tView.setText(" ");
-                //tView.setText(Double.toString(MyLocationListener.imHere.getLatitude())+" "+Double.toString(MyLocationListener.imHere.getLongitude()));
 
                 getRectOptions().add(new LatLng(MyLocationListener.imHere.getLatitude(), MyLocationListener.imHere.getLongitude()));
 
