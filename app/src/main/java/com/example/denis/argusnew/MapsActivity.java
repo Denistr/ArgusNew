@@ -1,8 +1,14 @@
 package com.example.denis.argusnew;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.location.LocationManager;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -65,11 +71,15 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        LocationManager manager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Enable location service in settings", Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
         myListener = new MyLocationListener();
         myListener.SetUpLocationListener(this);
-
-        setUpMapIfNeeded();
 
         btnStart = (Button)findViewById(R.id.btnStart);
         btnFix = (Button)findViewById(R.id.btnFix);
@@ -78,6 +88,11 @@ public class MapsActivity extends FragmentActivity {
 
         btnStart.setEnabled(false);
         btnFix.setEnabled(true);
+
+
+
+        setUpMapIfNeeded();
+
     }
 
     @Override
